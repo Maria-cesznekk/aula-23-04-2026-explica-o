@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Produto extends Model
 {
@@ -14,4 +15,8 @@ class Produto extends Model
         'qtd_estoque',
         'qtd_minima'
     ];
+    public function movimentacaos(): HasMany
+    {
+        return $this->hasMany(Movimentacao::class);
+    }
 }

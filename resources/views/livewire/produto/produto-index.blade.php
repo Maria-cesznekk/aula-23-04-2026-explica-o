@@ -9,10 +9,9 @@
         {{ session('success')}}
     </div>
     @endif
-<div class="mb-3">
-    <input type="text" wire:model.live='search'
-    placeholder="pesquisar..." class="form-control">
-</div>
+    <div class="mb-3">
+        <input type="text" wire:model.live='search' placeholder="pesquisar..." class="form-control">
+    </div>
 
     <table class="table table-hover">
         <thead>
@@ -33,10 +32,9 @@
                 <td>{{ $p->qtd_estoque}}</td>
                 <td>{{ $p->qtd_minima}}</td>
                 <td>
-                    <a href="{{ route( 'produto.edit', ['id' => $p->id])}}" 
-                        class="btn btn-sm btn-info">Editar</a>
-                        <button wire:click='delete({{$p->id}}) '
-                            class="btn btn-sm btn-danger">Excluir</button>
+                    <a href="{{ route( 'produto.edit', ['id' => $p->id])}}" class="btn btn-sm btn-info">Editar</a>
+                    <button wire:click='delete({{$p->id}}) ' class="btn btn-sm btn-danger">Excluir</button>
+                </td>
             </tr>
             @endforeach
         </tbody>
