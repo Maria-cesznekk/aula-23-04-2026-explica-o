@@ -23,22 +23,22 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123'),
         ]);
         Produto::create([
-            'name' => 'martelo',
+            'nome' => 'martelo',
             'valor' => 50.90,
-            'qtd_estoque'=>0,
+            'qtd_estoque' => 0,
             'qtd_minima' => 5,
         ]);
         Produto::create([
-            'name' => 'Alicate',
+            'nome' => 'Alicate',
             'valor' => 30,
             'qtd_estoque' => 0,
-              'qtd_minima' => 3,
+            'qtd_minima' => 3,
         ]);
         Produto::create([
-            'name' => 'Furadeira',
+            'nome' => 'Furadeira',
             'valor' => 99.99,
             'qtd_estoque' => 0,
-              'qtd_minima' => 8,
+            'qtd_minima' => 8,
         ]);
     }
 }
