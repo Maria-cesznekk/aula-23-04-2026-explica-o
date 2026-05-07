@@ -19,7 +19,7 @@ return new class extends Migration
             
             //colona produto id que faz referencia com a tabela
             //produtos compo id
-            $table->foreign('produto_id')->constrained();
+            $table->foreignId('produto_id')->constrained();
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
