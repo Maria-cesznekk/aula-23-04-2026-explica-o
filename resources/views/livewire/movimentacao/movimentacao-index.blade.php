@@ -13,24 +13,31 @@
         <input type="text" wire:model.live='search' placeholder="pesquisar..." class="form-control">
     </div>
 
-    <table class="table table-hover">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">produto</th>
                 <th scope="col">tipo</th>
-
                 <th scope="col">Quantidade movimentacao</th>
                 <th scope="col">Data movimentacao</th>
-                <th scope="col">Acoes</th>
+                <th scope="col">usuarios</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($movimentacao as $m)
             <tr>
-                <th scope="row">{{ $m->produto_id}}</th>
-                <td>{{ $m->tipo}}</td>
+                <td>{{ \Carbon\Carbon::parse($m->data_movimentacao)->format('d\m\Y') }}</td>
+
+                <th scope="row">{{ $m->produto_id}}-{{ $m->produto->nome}}</th>
+                <td>@if( $m->tipo=='entrada')
+                    <span class="badge bg-primary">Entrada</span>
+                    @else
+                    <span class="badge bg-danger">Saida</span>
+                    @endif
+                </td>
                 <td>{{ $m->quantidade}}</td>
                 <td>{{ $m->data_movimentacao}}</td>
+                <td>{{ $m->user_id}}-{{ $m->user->name}}</td>
                 <td>
 
                     <button wire:click='delete({{$m->id}}) ' class="btn btn-sm btn-danger">Excluir</button>
